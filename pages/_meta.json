@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
+  "cookbooks": "Cookbooks",
   "releasing-a-cookbook": "Releasing a Cookbook",
   "docs": "Documentation",
-  "minutes": "Meeting Minutes",
-  "cookbooks": "Cookbooks"
+  "minutes": "Meeting Minutes"
 }

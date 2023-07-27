@@ -15,9 +15,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const markdown = `
-    # Hello World
-    `;
+  const resp = await fetch(
+    `https://raw.githubusercontent.com/sous-chefs/nginx/main/README.md`
+  );
+  const markdown = await resp.text();
 
   const mdx = await buildDynamicMDX(markdown, {
     defaultShowCopyCode: true,
