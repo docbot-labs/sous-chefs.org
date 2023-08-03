@@ -12,7 +12,7 @@ const excludedRepos = [
   "postfix",
 ];
 
-async function listRepos() {
+export async function listRepos() {
   const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos", {
     headers: {
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
