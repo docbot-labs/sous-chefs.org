@@ -28,9 +28,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
   const [repo, path] = slug as string[];
 
-  const resp = await fetch(
-    `https://raw.githubusercontent.com/sous-chefs/${repo}/main/README.md`
-  );
+  console.log(repo, path);
+
+  const contentPath = `https://raw.githubusercontent.com/sous-chefs/${repo}/main/${
+    path ? `documentation/${path}.md` : "README.md"
+  }`;
+  console.log(contentPath);
+  const resp = await fetch(contentPath);
   const markdown = await resp.text();
 
   const mdx = await buildDynamicMDX(markdown, {
