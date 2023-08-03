@@ -5,11 +5,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos");
   const repos = await resp.json();
 
-  const paths = repos.map((repo) => ({
-    params: {
-      slug: [repo.name],
-    },
-  }));
+  const paths = (
+    await Promise.all(
+      repos.map(async (repo) => {
+        const paths = [repo.name];
+
+        const resp = await fetch(
+          `https://api.github.com/repos/sous-chefs/${repo.name}/contents/documentation`
+        );
+        const docs = await resp.json();
+
+        return paths;
+      })
+    )
+  ).flat();
+
+  console.log(paths);
 
   return {
     fallback: "blocking",
@@ -17,11 +28,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  console.log("getStaticProps");
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params;
+  const [repo, path] = slug as string[];
 
   const resp = await fetch(
-    `https://raw.githubusercontent.com/sous-chefs/nginx/main/README.md`
+    `https://raw.githubusercontent.com/sous-chefs/${repo}/main/README.md`
   );
   const markdown = await resp.text();
 
