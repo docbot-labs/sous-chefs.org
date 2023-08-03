@@ -1,10 +1,10 @@
-const { createCatchAllMeta } = require("nextra/catch-all");
+import { createCatchAllMeta } from "nextra/catch-all";
+import { listRepos } from "../../lib/cookbooks";
 
-module.exports = async () => {
+export default async () => {
   console.log("Running cookbooks meta");
 
-  const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos");
-  const repos = await resp.json();
+  const repos = await listRepos();
 
   return createCatchAllMeta(
     repos.map((repo) => repo.name).map((name) => `${name}.mdx`)

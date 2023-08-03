@@ -1,26 +1,22 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { buildDynamicMDX, buildDynamicMeta } from "nextra/remote";
 
+async function listRepos() {
+  const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos", {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  return resp.json();
+}
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos");
-  const repos = await resp.json();
-
-  const paths = (
-    await Promise.all(
-      repos.map(async (repo) => {
-        const paths = [repo.name];
-
-        const resp = await fetch(
-          `https://api.github.com/repos/sous-chefs/${repo.name}/contents/documentation`
-        );
-        const docs = await resp.json();
-
-        return paths;
-      })
-    )
-  ).flat();
-
-  console.log(paths);
+  const repos = await listRepos();
+  const paths = repos.map((repo) => ({
+    params: {
+      slug: [repo.name],
+    },
+  }));
 
   return {
     fallback: "blocking",
