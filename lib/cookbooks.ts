@@ -2,17 +2,18 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { buildDynamicMDX, buildDynamicMeta } from "nextra/remote";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  console.log("getStaticPaths");
+  const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos");
+  const repos = await resp.json();
+
+  const paths = repos.map((repo) => ({
+    params: {
+      slug: [repo.name],
+    },
+  }));
 
   return {
     fallback: "blocking",
-    paths: [
-      {
-        params: {
-          slug: "test-slug",
-        },
-      },
-    ],
+    paths,
   };
 };
 
