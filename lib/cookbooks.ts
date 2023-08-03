@@ -1,13 +1,25 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { buildDynamicMDX, buildDynamicMeta } from "nextra/remote";
 
+// FIXME: Update the MD on these pages to get the docs working
+const excludedRepos = [
+  "rvm",
+  "apt",
+  "elasticsearch",
+  "aws",
+  "emacs",
+  "ntp",
+  "postfix",
+];
+
 async function listRepos() {
   const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos", {
     headers: {
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
   });
-  return resp.json();
+  const repos = await resp.json();
+  return repos.filter((repo) => !excludedRepos.includes(repo.name));
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
