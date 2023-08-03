@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { buildDynamicMDX, buildDynamicMeta } from "nextra/remote";
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  console.log("getStaticPaths");
+
   return {
     fallback: "blocking",
     paths: [
@@ -15,6 +17,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  console.log("getStaticProps");
+
   const resp = await fetch(
     `https://raw.githubusercontent.com/sous-chefs/nginx/main/README.md`
   );
