@@ -1,5 +1,6 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { Main } from "./components/main";
 
 const config: DocsThemeConfig = {
   logo: <span>Sous Chefs</span>,
@@ -13,6 +14,7 @@ const config: DocsThemeConfig = {
   footer: {
     text: "Nextra Docs Template",
   },
+  main: Main,
 };
 
 export default config;
