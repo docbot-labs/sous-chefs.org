@@ -13,11 +13,14 @@ const excludedRepos = [
 ];
 
 export async function listRepos() {
-  const resp = await fetch("https://api.github.com/orgs/sous-chefs/repos", {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-    },
-  });
+  const resp = await fetch(
+    "https://api.github.com/orgs/sous-chefs/repos?per_page=100",
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      },
+    }
+  );
   const repos = await resp.json();
   return repos.filter((repo) => !excludedRepos.includes(repo.name));
 }

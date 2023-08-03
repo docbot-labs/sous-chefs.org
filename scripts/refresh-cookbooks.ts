@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs/promises";
 import { listRepos } from "../lib/cookbooks";
 
-const outDir = path.join(process.cwd(), "cookbooks");
+const outDir = path.join(process.cwd(), "pages/cookbooks");
 
 const repos = await listRepos();
 
