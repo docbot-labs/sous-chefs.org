@@ -56,7 +56,7 @@ export function Feedback() {
           className="w-full flex flex-row items-stretch gap-4"
         >
           <Comments.Input
-            className="flex-1 rounded p-2 border border-gray-700"
+            className="flex-1 rounded p-2 border border-gray-300"
             placeholder="Your feedback..."
           />
           <button className="px-2 py-1 bg-gray-700 text-white hover:bg-gray-800 transition-colors text-lg rounded">
