@@ -8,6 +8,11 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/sous-chefs",
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – Sous Chefs",
+    };
+  },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter } = useConfig();
