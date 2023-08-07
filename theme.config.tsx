@@ -5,14 +5,11 @@ import { Main } from "./components/main";
 const config: DocsThemeConfig = {
   logo: <span>Sous Chefs</span>,
   project: {
-    link: "https://github.com/shuding/nextra-docs-template",
+    link: "https://github.com/sous-chefs",
   },
-  chat: {
-    link: "https://discord.com",
-  },
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  docsRepositoryBase: "https://github.com/sous-chefs",
   footer: {
-    text: "Nextra Docs Template",
+    text: "Sous Chefs",
   },
   main: Main,
 };
