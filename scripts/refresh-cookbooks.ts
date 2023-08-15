@@ -4,6 +4,9 @@ import { listRepos } from "../lib/cookbooks";
 
 const outDir = path.join(process.cwd(), "pages/cookbooks");
 
+await fs.rm(outDir, { recursive: true, force: true });
+await fs.mkdir(outDir, { recursive: true });
+
 const repos = await listRepos();
 
 await Promise.all(
