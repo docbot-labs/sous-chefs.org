@@ -2,9 +2,11 @@ import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { Main } from "./components/main";
 import { useRouter } from "next/router";
+import logo from "./images/logo.png";
+import Image from "next/image";
 
 const config: DocsThemeConfig = {
-  logo: <span>Sous Chefs</span>,
+  logo: <Image width={48} height={48} src={logo} alt="Sous Chefs" />,
   project: {
     link: "https://github.com/sous-chefs",
   },
