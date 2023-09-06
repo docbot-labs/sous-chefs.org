@@ -13,7 +13,7 @@ function Wrapper({ children }: PropsWithChildren) {
         lvl1: route,
       }}
     >
-      <div className="flex items-center justify-between bg-gray-50 p-8 rounded-lg">
+      <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-8 rounded-lg dark:text-white">
         {children}
       </div>
     </Provider>
@@ -56,10 +56,10 @@ export function Feedback() {
           className="w-full flex flex-row items-stretch gap-4"
         >
           <Comments.Input
-            className="flex-1 rounded p-2 border border-gray-300"
+            className="flex-1 rounded p-2 border border-gray-300 dark:border-gray-800 dark:bg-gray-500"
             placeholder="Your feedback..."
           />
-          <button className="px-2 py-1 bg-gray-700 text-white hover:bg-gray-800 transition-colors text-lg rounded">
+          <button className="px-2 py-1 bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors text-lg rounded">
             Submit
           </button>
         </Comments>
