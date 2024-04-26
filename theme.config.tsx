@@ -4,7 +4,6 @@ import { Main } from "./components/main";
 import { useRouter } from "next/router";
 import logo from "./images/logo.png";
 import Image from "next/image";
-import { Logo } from "./components/doclabs-logo";
 
 const config: DocsThemeConfig = {
   logo: <Image width={48} height={48} src={logo} alt="Sous Chefs" />,
@@ -37,17 +36,6 @@ const config: DocsThemeConfig = {
     );
   },
   docsRepositoryBase: "https://github.com/sous-chefs",
-  footer: {
-    text: (
-      <a
-        className="flex flex-row items-center gap-2"
-        href="https://www.doclabs.dev"
-        target="__blank"
-      >
-        Powered by <Logo className="h-3 inline-block" />
-      </a>
-    ),
-  },
   main: Main,
 };
 
