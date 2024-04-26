@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@doclabs/react':
-    specifier: ^0.3.0
-    version: 0.3.0(react@18.2.0)
   '@theguild/remark-mermaid':
     specifier: ^0.0.4
     version: 0.0.4(react@18.2.0)
@@ -19,7 +16,7 @@ dependencies:
     version: 2.10.0(next@13.0.6)(react-dom@18.2.0)(react@18.2.0)
   nextra-theme-docs:
     specifier: latest
-    version: 2.12.1(next@13.0.6)(nextra@2.10.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 2.10.0(next@13.0.6)(nextra@2.10.0)(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -66,15 +63,6 @@ packages:
 
   /@braintree/sanitize-url@6.0.2:
     resolution: {integrity: sha512-Tbsj02wXCbqGmzdnXNk0SOF19ChhRU70BsroIi4Pm6Ehp56in6vch94mfbdQ17DozxkL3BAVjbZ4Qc1a0HFRAg==}
-    dev: false
-
-  /@doclabs/react@0.3.0(react@18.2.0):
-    resolution: {integrity: sha512-IG5m+NGLMF5NMgtoUR0CyaLn+lv9MaM+fijK5Omale04qdVUh51IOOfSAfgiKRcZu2g/NvpkDbTL68SvUrR0BA==}
-    peerDependencies:
-      react: 17 - 18
-    dependencies:
-      react: 18.2.0
-      uuid: 9.0.0
     dev: false
 
   /@esbuild-kit/cjs-loader@2.4.2:
@@ -949,11 +937,6 @@ packages:
 
   /clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
-    engines: {node: '>=6'}
-    dev: false
-
-  /clsx@2.0.0:
-    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
     dev: false
 
@@ -2680,18 +2663,17 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-docs@2.12.1(next@13.0.6)(nextra@2.10.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-gvaBf7JoMETB/GL3iq2RiHIkh2Dzbjx92UxN8w3HHBC+gsYu25TupmVIRSMdFDK8nipRrre+OMfmym57rEPaRA==}
+  /nextra-theme-docs@2.10.0(next@13.0.6)(nextra@2.10.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uXoqRoewbu0JoqQ1m67aIztWe9/nEhcSeHMimhLxZghKZxkYN0kTR5y5jmrwOHRPuJUTLL2YFwy1rvWJIZS2lw==}
     peerDependencies:
       next: '>=9.5.3'
-      nextra: 2.12.1
+      nextra: 2.10.0
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
     dependencies:
       '@headlessui/react': 1.7.10(react-dom@18.2.0)(react@18.2.0)
       '@popperjs/core': 2.11.6
-      clsx: 2.0.0
-      escape-string-regexp: 5.0.0
+      clsx: 1.2.1
       flexsearch: 0.7.31
       focus-visible: 5.2.0
       git-url-parse: 13.1.0
